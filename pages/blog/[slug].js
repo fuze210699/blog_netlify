@@ -20,7 +20,7 @@ const Post = ({ htmlString, data }) => {
 };
 
 export const getStaticPaths = async () => {
-  const files = fs.readdirSync('posts');
+  const files = fs.readdirSync('content/blogs');
   const paths = files.map((filename) => ({
     params: {
       slug: filename.replace('.md', ''),
@@ -35,7 +35,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithMetaData = fs
-    .readFileSync(path.join('posts', slug + '.md'))
+    .readFileSync(path.join('content/blogs', slug + '.md'))
     .toString();
 
   const parsedMarkdown = matter(markdownWithMetaData);
