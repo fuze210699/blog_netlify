@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import fs from 'fs';
 import Link from 'next/link';
@@ -14,15 +13,18 @@ export default function Home({ slugs }) {
       </Head>
 
       <main className={styles.main}>
-        {slugs &&
-          !!slugs.length &&
-          slugs.map((slug, index) => (
-            <div key={index}>
-              <Link href={`blog/${slug}`}>
-                <a>{`blog/${slug}`}</a>
-              </Link>
-            </div>
-          ))}
+        <h1>Danh sách các bài blog :</h1>
+        <ul>
+          {slugs &&
+            !!slugs.length &&
+            slugs.map((slug, index) => (
+              <li key={index}>
+                <Link href={`blog/${slug}`}>
+                  <a>{`blog/${slug}`}</a>
+                </Link>
+              </li>
+            ))}
+        </ul>
       </main>
     </div>
   );

@@ -4,6 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import Head from 'next/head';
 import { marked } from 'marked';
+import styles from '../../styles/Home.module.css';
 
 const Post = ({ htmlString, data }) => {
   return (
@@ -11,8 +12,7 @@ const Post = ({ htmlString, data }) => {
       <Head>
         <title>{data.title}</title>
       </Head>
-      <div>
-        <div>Content</div>
+      <div className={styles.container}>
         <div dangerouslySetInnerHTML={{ __html: htmlString }} />
       </div>
     </>
